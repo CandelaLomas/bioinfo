@@ -1,0 +1,8 @@
+.RData
+.Rhistory
+.Ruserdata
+*.Rproj
+ncbi_dataset.zip
+ncbi_dataset/
+lib*/
+*.zip
