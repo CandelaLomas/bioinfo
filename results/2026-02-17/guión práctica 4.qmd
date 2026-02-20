@@ -1,5 +1,5 @@
 ---
-title: "Trabajar con tablas o marcos de datos con R"
+title: "Práctica 4. Trabajar con tablas o marcos de datos con R"
 lang: es
 date: today
 execute: 
@@ -26,8 +26,24 @@ datos de ejemplo, usaremos los programas `datasets` y `dataformat`
 [@OLeary2024], que pueden descargarse en [este
 enlace](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/command-line-tools/download-and-install/).
 
-Ya está todo instalado. Datasets y dataformat están descargados en
-Ubuntu.
+Para descargar las cosas de R (dplyr, kableExtra y jsonlite) se utiliza
+el comando install.packages(c("los programas entre comas")) y, para
+verirficar que se han descargado correctamente se utilzia library(el
+nombre del programa).
+
+Para poder descargar datasets y dataformat se instalan con conda, ya que
+ya lo tenemos instalado. primero se crea un entorno para ncbi-datasets,
+se instalan las herramientas y se verifica que todo ha salido bien.
+
+```         
+conda create -n ncbi_datasets -y 
+conda activate ncbi_datasets
+conda install -c conda-forge ncbi-datasets-cli -y
+datasets --version
+dataformat --version
+```
+
+Con dataformat estoy teniendo problemas, pero no sé solucionarlos.
 
 # Objetivos
 
