@@ -354,7 +354,7 @@ cat("Columnas constantes en exon:", constantes_exon, "\n")
 cat("Columnas constantes en CDS:", constantes_cds, "\n")
 cat("Columnas constantes en region:", constantes_region, "\n")
 
-Para eliminar las columnas invariables, se utiliza el siguiente código: 
+#Para eliminar las columnas invariables, se utiliza el siguiente código: 
 remove_constant_cols <- function(df, constant_cols) {
   if (length(constant_cols) > 0) {
     return(df[, !names(df) %in% constant_cols])
@@ -441,7 +441,6 @@ resumen <- data.frame(
     sd(region$longitud)
   )
 )
-
 ```
 :::
 
@@ -681,6 +680,8 @@ genes_parciales <- gff[f_parcial & gff$type == "gene", ]
 cat("=== GENES PARCIALMENTE CONTENIDOS ===\n")
 cat("Número de genes que solapan:", nrow(genes_parciales), "\n")
 ```
+
+El número de genes que se solapan es de 216.
 :::
 
 # Las llaves y la función `match()`
@@ -766,31 +767,31 @@ head(data.frame(
     `genomas$acc` sigue siendo una *llave* (valores únicos) de la tabla
     `genomas`?
 
-#Primero se comprueba si hay valores duplicados.
+Primero se comprueba si hay valores duplicados.
 
 ```         
 cat("=== VERIFICACIÓN DE LLAVE ===\n")
 ```
 
-#Se ve el número total de filas.
+Se ve el número total de filas.
 
 ```         
 cat("Total filas en genomas:", nrow(genomas), "\n")
 ```
 
-#Se ve el número de valores únicos en acc.
+Se ve el número de valores únicos en acc.
 
 ```         
 cat("Valores únicos en acc:", length(unique(genomas$acc)), "\n")
 ```
 
-#Se comprueba si son iguales. Si lo son, es llave.
+Se comprueba si son iguales. Si lo son, es llave.
 
 ```         
 es_llave <- nrow(genomas) == length(unique(genomas$acc)) cat("¿acc es llave?", es_llave, "\n") 
 ```
 
-#Si no es la llave, encontrar duplicados.
+Si no es la llave, encontrar duplicados.
 
 ```         
 if (!es_llave) {    
@@ -801,7 +802,7 @@ if (!es_llave) {
       print(genomas[genomas$acc == acc,                          c("Assembly.Accession", "Organism.Name")])    }
 ```
 
-#Expliación de por qué ocurre
+Expliación de por qué ocurre
 
 ```         
 cat("\n--- EXPLICACIÓN ---\n")    
@@ -809,33 +810,32 @@ cat("Diferentes versiones del mismo ensamblaje (.1, .2, etc.)\n")
 cat("Ahora comparten el mismo acc sin versión\n")    
 cat("En este caso, acc NO es llave, sino que agrupa versiones\n") } else {    
 cat("\n✅ ¡Perfecto! acc sigue siendo llave única\n") }
-
 ```
 
-#Se puede comprobar si hay NA.
+Se puede comprobar si hay NA.
 
 ```         
 cat("\n¿Valores NA en acc?", any(is.na(genomas$acc)), "\n")
 ```
 
-1.  Siguiendo el mismo esquema añade a `genomas` el "base_count" y
+2.  Siguiendo el mismo esquema añade a `genomas` el "base_count" y
     compáralo con el "Assembly.Stats.ATGC.Count". Si observas alguna
     diferencia, intenta explicarla.
 
-#Añadir base_count desde ENA usando match()
+Añadir base_count desde ENA usando match()
 
 ```         
 genomas$base_count <- genomas.ena[match(genomas$acc, genomas.ena$accession), 'base_count']
 ```
 
-#Ver las nuevas columnas
+Ver las nuevas columnas
 
 ```         
 cat("=== COMPARACIÓN DE LONGITUDES ===\n") 
 head(genomas[, c("Assembly.Accession", "acc",                   "Assembly.Stats.ATGC.Count", "base_count")], 20) 
 ```
 
-#Crear data frame para comparación
+Crear data frame para comparación
 
 ```         
 comparacion <- data.frame(    
@@ -847,13 +847,13 @@ comparacion <- data.frame(
 )
 ```
 
-#Calcular diferencias
+Calcular diferencias
 
 ```         
 comparacion$diferencia <- comparacion$ncbi_length - comparacion$ena_length comparacion$dif_relativa <- round(comparacion$diferencia / comparacion$ena_length * 100, 2) 
 ```
 
-#Análisis de diferencias
+Análisis de diferencias
 
 ```         
 cat("\n=== ANÁLISIS DE DIFERENCIAS ===\n") 
@@ -862,28 +862,28 @@ cat("Difieren:", sum(comparacion$diferencia != 0, na.rm = TRUE), "\n")
 cat("Sin datos en ENA:", sum(is.na(comparacion$ena_length)), "\n")
 ```
 
-#Ver casos con diferencia
+Ver casos con diferencia
 
 ```         
 if (any(comparacion$diferencia != 0, na.rm = TRUE)) {    cat("\n--- CASOS CON DIFERENCIA (top 10) ---\n")     
   diffs <- comparacion[!is.na(comparacion$ena_length) &                          comparacion$diferencia != 0, ]    diffs <- diffs[order(abs(diffs$diferencia), decreasing = TRUE), ]    print(head(diffs, 10)) } 
 ```
 
-#Resumen estadístico de diferencias
+Resumen estadístico de diferencias
 
 ```         
 cat("\n--- RESUMEN DE DIFERENCIAS ---\n") 
 summary(comparacion$diferencia[!is.na(comparacion$ena_length)])
 ```
 
-#Visualización
+Visualización
 
 ```         
 par(mfrow = c(1, 2))
 ```
 
 Al añadir base_count de ENA y compararlo con Assembly.Stats.ATGC.Count
-de NCBI, se observaron diferencias en 56 casos. Estas diferencias pueden
+de NCBI, se observaron diferencias en 18 casos. Estas diferencias pueden
 deberser a diferentes versiones del ensamblaje entre bases de datos,
 distintos criterios en el cálculo de la longitud total, actualizaciones
 asíncronas de NCBI y ENA y posibles errores de anotación.
