@@ -1,3 +1,11 @@
+*.fastq
+*.fastq.gz
+*.bam
+*.sam
+*.vcf
+*.bam.bai
+data/
+EOF
 .RData
 .Rhistory
 .Ruserdata
