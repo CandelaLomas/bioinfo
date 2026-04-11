@@ -6,7 +6,7 @@ execute:
   output: false
   error: true
 engine: knitr
-bibliography: ../../references.bib
+#bibliography: ../../references.bib
 language:
    title-block-published: "Última actualización:"
    section-title-references: "Bibliografía"
@@ -207,7 +207,7 @@ pfam01[['count']] #Número total de dominios
 pfam01[['next']] #URL de la página siguiente
 pfam01[['previous']] # URL de la página anterior
 pfam01[['results']] #Los 20 registros que salen. 
-pfam01[['results']][['metadata']] #Solo los metadatos (datos que describen a los datos que tenemos). 
+pfam01[['results']][['metadata']] #Solo los metadatos (datos que describen a los datos que tenemos).
 ```
 
 Los siguientes 20 registros de Pfam se encuentran en `pfam01[['next']]`:
@@ -259,7 +259,7 @@ pfam <- rbind_pages(list(pfam01[['results']][['metadata']],
 ```
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **`rbind_pages()`** | Función que une varias tablas (data frames) en una sola |
 | **`list( ... )`** | Agrupa las tablas individuales en una lista |
 | **`[['results']][['metadata']]`** | Extrae SOLO los registros (la parte que queremos unir) |
@@ -308,7 +308,7 @@ la función `str()`. ¿Puedes extraer la secuencia?
 Primero, hay que descargar la información de la proteína P01923. Se
 visualiza y se extrae la secuencia, que está dentro de metadata.
 
-```         
+```{r}
 p01923 <- fromJSON(paste0(API, 'protein/reviewed/P01923'))
 str(p01923)
 secuencia <- p01923[['metadata']][['sequence']]
@@ -316,7 +316,7 @@ secuencia <- p01923[['metadata']][['sequence']]
 
 Para mostar la secuencia se utiliza:
 
-```         
+```{r}
 cat("Secuencia de P01923:\n") 
 cat(secuencia)
 ```
@@ -354,26 +354,26 @@ terciaria?
 
 Primero, vemos todos los taxones en UniProtKB:
 
-```         
+```{r}
 todos_taxones <- fromJSON(paste0(API, 'taxonomy/uniprot')) 
 total_taxones <- todos_taxones$taxa$uniprot
 ```
 
 Y, ahora, solo vemos los taxones que presentan proteínas.
 
-```         
+```{r}
 taxones_con_proteinas <- fromJSON(paste0(API, 'taxonomy/protein')) total_con_proteinas <- taxones_con_proteinas$taxa$uniprot
 ```
 
 Se calcula los taxones sin proteínas:
 
-```         
+```{r}
 taxones_sin_proteinas <- total_taxones - total_con_proteinas
 ```
 
 Y se muestran los resultados:
 
-```         
+```{r}
 cat("=== TAXONES EN UNIPROTKB ===\n") cat("Taxones totales:", total_taxones, "\n") cat("Taxones con proteínas:", total_con_proteinas, "\n") cat("Taxones SIN proteínas:", taxones_sin_proteinas, "\n") cat("Proporción sin proteínas:",      
    round(taxones_sin_proteinas/total_taxones * 100, 2), "%\n")
 ```
@@ -381,7 +381,7 @@ cat("=== TAXONES EN UNIPROTKB ===\n") cat("Taxones totales:", total_taxones, "\n
 Ahora se quieren comparar todas las proteínas con solo las proteínas que
 tienen estructura terciaria:
 
-```         
+```{r}
 todas_proteinas <- fromJSON(paste0(API, 'protein')) total_proteinas <- todas_proteinas$proteins$uniprot 
 proteinas_con_estructura <- fromJSON(paste0(API, 'protein/structure'))
 total_con_estructura<-proteinas_con_estructura$proteins$uniprot
@@ -428,19 +428,19 @@ vertebrados (taxon 7742). Al menos, los 20 primeros.
 
 Primero se descargan los primeros 20 dominios Pfam en vertebrados.
 
-```         
+```{r}
 vertebrados <- fromJSON(paste0(API, 'entry/pfam/taxonomy/uniprot/7742'))
 ```
 
 Se ve cuántos hay en total.
 
-```         
+```{r}
 cat("Total dominios Pfam en vertebrados:", vertebrados[['count']], "\n")
 ```
 
 Para ver los 20 primeros se utiliza:
 
-```         
+```{r}
 library(kableExtra) 
 kable(flatten(vertebrados[['results']][['metadata']])) %>% kable_styling() 
 ```
@@ -453,15 +453,14 @@ kable(flatten(vertebrados[['results']][['metadata']])) %>% kable_styling()
 Primero, hay que construir la URL correcta con el taxón y el dominio.
 Con JSON se descargan los datos.
 
-```         
-> url_correcta <- paste0(API, 'entry/pfam/PF01530/taxonomy/uniprot/8493')
+```{r}
+url_correcta <- paste0(API, 'entry/pfam/PF01530/taxonomy/uniprot/8493')
 resultado <- fromJSON(url_correcta)
 
-> cat("Proteínas de cocodrilos con PF01530:",
+cat("Proteínas de cocodrilos con PF01530:",
     resultado$metadata$counters$proteins, "\n") #Se extrae el número de proteínas. 
 
-#Esta es la respuesta:
-Proteínas de cocodrilos con PF01530: 15
+#Esta es la respuesta: Proteínas de cocodrilos con PF01530: 15
 ```
 :::
 
