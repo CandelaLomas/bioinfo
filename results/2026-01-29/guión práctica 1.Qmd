@@ -55,7 +55,7 @@ Luego, con which, se va comprobando que cada programa se ha instalado
 correctamente y DÓNDE. En este caso, todos los programas se han
 instalado en la carpeta bin (/usr/bin/\*programa\*).
 
-```         
+```{bash}
 apt install emboss exonerate wget muscle
 ```
 
