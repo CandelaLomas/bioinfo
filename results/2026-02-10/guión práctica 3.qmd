@@ -31,7 +31,7 @@ Usaremos los programas siguientes:
 
     Este programa se instala con:
 
-    ```         
+    ```{bash}
     conda install -c bioconda fastp
     ```
 
@@ -50,7 +50,7 @@ Usaremos los programas siguientes:
 -   [bwa](https://github.com/lh3/bwa) [@Li2009]. Puedes descargar el
     código fuente con y compilarlo siguiendo estos pasos:
 
-    ```         
+    ```{bash}
     git clone https://github.com/lh3/bwa.git
     cd bwa
     make
@@ -90,15 +90,9 @@ bin es la carpeta donde se guardan los programas ejecutables.
 
 Como no tenía (creo) /usr/local/bin/, la creé con
 
-```         
+```{bash}
 echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
-```
-
-```         
 source ~/.bashrc
-```
-
-```         
 echo $PATH | grep /usr/local/bin
 ```
 
@@ -160,13 +154,10 @@ que equivale a 411.682 secuencias.
 Como antes todas las carpetas estaban en Windows, las cosas no me
 funcionaban, por lo que he copiado todo (con cp) a WLS/Linux, con la
 misma estructura y todo. Luego, para contar el número de líneas he
-utilizado
+utilizado.
 
-```         
+```{bash}
 zcat DRR025089_1.fastq.gz | wc -l
-```
-
-```         
 zcat DRR025089_2.fastq.gz | wc -l
 ```
 
@@ -402,15 +393,17 @@ fi
 5.  Podíamos haber ahorrado algún paso aprovechando las *tuberías* de
     BASH:
 
-```         
-bwa mem -M -R '@RG\tID:DRR025089\tSM:SAMD00022947' \
-        referencia.fa DRR025089_1_clean.fastq DRR025089_2_clean.fastq | \
-samtools view -u - | \
-samtools sort - > DRR025089.bam
-```
+    ```{bash}
+    bwa mem -M -R '@RG\tID:DRR025089\tSM:SAMD00022947' \
+            referencia.fa DRR025089_1_clean.fastq DRR025089_2_clean.fastq | \
+    samtools view -u - | \
+    samtools sort - > DRR025089.bam
+    ```
 
-Este estilo tiene también la ventaja de ser más rápido. ¿Crees que hay
-algún inconveniente al usar las tuberías?
+<!-- -->
+
+6.  Este estilo tiene también la ventaja de ser más rápido. ¿Crees que
+    hay algún inconveniente al usar las tuberías?
 
 Sí, ya que, si falla, no hay ningún archivo intermedio del que podamos
 partir y reintentarlo y el SAM, como no se escribe en el disco, no se
@@ -461,14 +454,14 @@ plot(COV$cobertura, COV$bases, type = 'l')
     Para saber cómo se llaman los plásmidos en la referencia se utiliza,
     en bash, el siguiente comando:
 
-    ```         
+    ```{bash}
     grep "^>" referencia.fa
     ```
 
     Y luego, para ver cuántas lecturas mapean a cada plásmido se utiliza
     el siguiente comando:
 
-    ```         
+    ```{bash}
     samtools idxstats DRR025089.bam
     ```
 
@@ -477,9 +470,9 @@ plot(COV$cobertura, COV$bases, type = 'l')
 
 4.  Visualiza los alineamientos en el terminal con la orden siguiente:
 
-```         
-samtools tview DRR025089.bam referencia.fa
-```
+    ```{bash}
+    samtools tview DRR025089.bam referencia.fa
+    ```
 
 Visualizados.
 :::
