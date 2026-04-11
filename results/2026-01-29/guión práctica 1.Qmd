@@ -6,7 +6,7 @@ execute:
   output: true
   error: true
 engine: knitr
-bibliography: ../../references.bib
+#bibliography: ../../references.bib
 language:
    title-block-published: "Última actualización:"
    section-title-references: "Bibliografía"
@@ -79,7 +79,7 @@ terminal.
 # Comandos básicos
 
 | Comando | Función |
-|----------------------------------|:------------------------------------|
+|-----------------------------------|:------------------------------------|
 | pwd | Conocer la dirección absoluta del directorio actual |
 | cd .. | Cambiar al directorio superior |
 | cd a | Entrar en el directorio "a" |
