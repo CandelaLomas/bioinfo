@@ -6,7 +6,7 @@ execute:
   output: true
   error: true
 engine: knitr
-bibliography: ../../references.bib
+#bibliography: ../../references.bib
 language:
    title-block-published: "Última actualización:"
    section-title-references: "Bibliografía"
@@ -29,17 +29,14 @@ R.
 
 Para instalar ambos programas en R se utiliza:
 
-```         
+```{r}
 install.packages("curl")
-```
-
-```         
 install.packages("kableExtra")
 ```
 
 Y, para comprobar que están instalados correctamente se utiliza:
 
-```         
+```{r}
 library(curl) 
 library(kableExtra)
 ```
@@ -52,11 +49,12 @@ warning cuando intentaba ejecutar kableExtra, eliminé kableExtra y xml2
 porque probablemente me estaba dando problemas, instalé otra vez xml2 y
 kableExtra.
 
-```         
-bash
+```{bash}
+#| eval: false
 sudo apt install libxml2-dev libxml2
+```
 
-R
+```{r}
 install.packages("xml2", type = "source")
 install.packages("kableExtra", dependencies = TRUE)
 ```
@@ -65,7 +63,8 @@ Luego, como no aparecía ningún warning, probé a crear una tabla básica,
 pero no se podía abrir porque no tenía un navegador web, por lo que en
 bash me descargué firefox.
 
-```         
+```{bash}
+#| eval: false
 sudo apt update 
 sudo apt install firefox
 ```
@@ -252,26 +251,48 @@ codificantes de alcohol deshidrogenasas del género *Drosophila*, que te
 permita contestar las preguntas siguientes. Consulta el apéndice de este
 guión, si lo necesitas.
 
+Primero, hay que comprobar curl con library('curl'). Luego, el código
+utilizado fue el siguiente:
+
+```{r}
+portal <- 'https://www.ebi.ac.uk/ena/portal/api/search?' result <- 'result=sequence&' query <- 'query=tax_tree(32346) AND description="alcohol dehydrogenase "&' fields <- 'fields=accession,description,scientific_name,base_count,las t_updated&' limit <- 'limit=0'
+
+URL_completa <- paste0(portal, result, query, fields, limit)
+
+URL_final <- URLencode(URL_completa)
+
+curl_download(URL_final, destfile = 'drosophila_adh.txt')
+
+adh <- read.table('drosophila_adh.txt', header = TRUE, sep = "\t", stringsAsFactors = FALSE, quote = "")
+```
+
 1.  ¿Cuántas secuencias hay con el término "alcohol dehydrogenase" en su
     descripción?
 
-Hay 7 secuencias diferentes con dim(adh).
+Hay 5 secuencias diferentes con dim(adh).
 
 2.  ¿Qué longitudes tienen?
 
-Con names(adh), adh\$base_count, summary(adh\$base_count)
+Pirmero, se hace adh\$base_count y luego summary(adh\$base_count). El
+resultado es el siguiente:
+
+Min. 1st Qu. n Median Mean 3rd Qu. Max.
+
+44.0 480.0 740.0 927.6 839.0 17499.0
 
 3.  ¿De cuántas especies diferentes son estas secuencias?
 
-De 102 especies diferentes utilizando
+Encontramos hasta 84 especies.
 
-```         
+```{r}
 length(unique(adh$scientific_name))
 ```
 
 4.  ¿Cuándo se publicaron las más recientes?
 
-El 2026-02-14, utilizando el código max(as.Date(adh\$last_updated)).
+El más reciente se publicó el 2019-06-04. Los comandos utilizados fueron
+adh\$last_updated\<- as.Date(adh\$last_updated) y
+max(adh\$last_updated).
 :::
 
 # Trabajar con los resultados
@@ -327,6 +348,11 @@ mtext('Base count', side = 2, line = 5)
 ¿De qué manera necesitarías transformar la tabla `platelmintos` para
 poder representar gráficamente la longitud acumulada de todas las
 secuencias disponibles a medida que se han ido publicando?
+
+Primero, hay que ordenar los datos cronológicamente por fecha de
+publicación con last_updated, de la más antigua a la más reciente y,
+luego, se calcula la longitud acumulada usando cumsum() sobre la columna
+de base_count para que sume progresivamente todas las secuencias.
 :::
 
 # La API del navegador (*browser*) de ENA
@@ -351,6 +377,8 @@ curl_download(URL, destfile = 'Adh.fasta')
 ## Ejercicio 4
 
 Intenta descargar esas mismas secuencias en formato EMBL.
+
+Se hace igual pero donde ponga fasta se pone embl.
 :::
 
 # Apéndice
