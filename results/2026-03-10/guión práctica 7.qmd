@@ -6,7 +6,7 @@ execute:
   eval: true
   error: true
 engine: knitr
-bibliography: ../../references.bib
+#bibliography: ../../references.bib
 language:
    title-block-published: "Última actualización:"
    section-title-references: "Bibliografía"
@@ -413,7 +413,6 @@ ggplot(gwas, aes(x = BETA, y = -log10(P), color = sig_cat)) +
   theme_minimal() +
   theme(legend.position = "bottom",
         strip.background = element_rect(fill = "lightgray", color = NA)
-        
 ```
 
 2.  El número de SNPs cuyo genotipo está significativamente asociado al fenotipo, ¿te parece elevado o bajo?
