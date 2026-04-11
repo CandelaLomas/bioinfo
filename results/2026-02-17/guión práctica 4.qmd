@@ -6,7 +6,7 @@ execute:
   output: true
   error: true
 engine: knitr
-bibliography: ../../references.bib
+#bibliography: ../../references.bib
 language:
    title-block-published: "Última actualización:"
    section-title-references: "Bibliografía"
@@ -31,7 +31,7 @@ el comando install.packages(c("los programas entre comas")) y, para
 verirficar que se han descargado correctamente se utilzia library(el
 nombre del programa).
 
-```         
+```{r}
 install.packages(c("dplyr", "kableExtra", "jsonlite"))
 ```
 
@@ -45,7 +45,7 @@ Para poder descargar datasets y dataformat se instalan con conda, ya que
 ya lo tenemos instalado. primero se crea un entorno para ncbi-datasets,
 se instalan las herramientas y se verifica que todo ha salido bien.
 
-```         
+```{bash}
 conda create -n ncbi_datasets -y 
 conda activate ncbi_datasets
 conda install -c conda-forge ncbi-datasets-cli -y
@@ -109,7 +109,6 @@ Veamos esa tabla en el informe HTML en un formato adecuado.
 
 ```{r}
 #| messages: false
-
 library('kableExtra')
 genomas <- read.table('trypanosoma_annotated.txt',
                       header = TRUE, sep = '\t')
@@ -126,7 +125,7 @@ pandoc.
 
 Código para guardar esta tabla en .html:
 
-```         
+```{r}
 kable(genomas) %>%   kable_styling(bootstrap_options = c("striped", "hover")) %>%   save_kable("tabla_genomas.html", self_contained = TRUE)
 ```
 
@@ -159,20 +158,20 @@ que es la tercera columna, llamada `Assembly.Release.Date`.
 Primero hay que asegurarse de tener las librerías cargadas, por si
 acaso.
 
-```         
+```{r}
 library(dplyr) 
 library(kableExtra)
 ```
 
 Para que todo funcione, hay que cargar los datos:
 
-```         
+```{r}
 genomas <- read.table('trypanosoma_completo.txt',                                  header = TRUE, sep = '\t',                                 fill = TRUE, quote = "",                                   comment.char = "") 
 ```
 
 Y se puede verificar si se han descargado correctamente:
 
-```         
+```{r}
 dim(genomas) 
 head(genomas) 
 names(genomas)
@@ -198,7 +197,7 @@ genomas$Assembly.Release.Date <- as.Date(genomas$Assembly.Release.Date,
 
 Luego, nos aseguramos de que el genoma es de tipo Date con:
 
-```         
+```{r}
 class(genomas$Assembly.Release.Date)
 ```
 
@@ -234,7 +233,7 @@ fi
 Para verificar que todo se descargó correctamente (no sería la primera
 vez que no se descarga bien):
 
-```         
+```{bash}
 ls -la ncbi_dataset/data/GCA_022059095.1/ 
 ls -la ncbi_dataset/data/assembly_data_report.jsonl
 ```
@@ -330,7 +329,7 @@ las líneas. Y elimina esas columnas.
 Para identificar cuales son las columnas invariables se utilizan los
 siguientes comandos:
 
-```         
+```{r}
 find_constant_cols <- function(df) {   
   constant_cols <- c()   
   for (col in names(df)) {     
@@ -415,7 +414,7 @@ siguiendo la misma estructura.
 
 El código completo es el siguiente:
 
-```         
+```{r}
 cds$longitud     <- cds$end - cds$start + 1 gene$longitud    <- gene$end - gene$start + 1 mrna$longitud    <- mrna$end - mrna$start + 1 exon$longitud    <- exon$end - exon$start + 1 region$longitud  <- region$end - region$start + 1
 resumen <- data.frame(
   tipo = c('CDS', 'gene', 'mRNA', 'exon', 'region'),
@@ -464,6 +463,7 @@ length(porTipo)
 names(porTipo)
 sapply(porTipo, class)
 sapply(porTipo, nrow)
+``
 ```
 
 La función `sapply()`, toma al menos dos argumentos: una lista (o
@@ -527,7 +527,7 @@ cromosoma?
 
 Primero, activamos los dos softwares que vamos a utilizar.
 
-```         
+```{r}
 library(dplyr) 
 library(kableExtra)
 ```
@@ -535,7 +535,7 @@ library(kableExtra)
 Nos aseguramos de que tenemos el data frame 'gene' y, si no existe, lo
 creamos a partir de gff.
 
-```         
+```{r}
 if (!exists("gene")) {    
     gene <- gff[gff$type == "gene", ] 
 }
@@ -544,7 +544,7 @@ if (!exists("gene")) {
 Y, para contar cuántos genes hay codificados en cada sentido y en cada
 cromosoma hacemos lo siguiente:
 
-```         
+```{r}
 genes_por_cromosoma <- gene %>%    
    group_by(seqid, strand) %>%    
    summarise(       
@@ -604,7 +604,7 @@ head(interesantes)
 Se puede hacer filtrando primero por cromosoma y luego por tipo o con
 dplyr, que es más rápido. Se haría de la siguiente manera:
 
-```         
+```{r}
 library(dplyr)  
 
 genes_candidatos <- gff %>%    
@@ -666,7 +666,7 @@ Un gen solo se solapa si no está completamente a la izquierda y no está
 completamente a la derecha. Por tanto, el nuevo código sería de la
 siguiente manera:
 
-```         
+```{r}
 f1 <- gff$seqid == 'JAJSEB010000048.1' & gff$end >= 184638 & gff$start <= 253478 
 f2 <- gff$seqid == 'JAJSEB010000012.1' & gff$end >= 133444 & gff$start <= 348860 
 f3 <- gff$seqid == 'JAJSEB010000020.1' & gff$end >= 73393  & gff$start <= 149614 
@@ -769,31 +769,31 @@ head(data.frame(
 
 Primero se comprueba si hay valores duplicados.
 
-```         
+```{r}
 cat("=== VERIFICACIÓN DE LLAVE ===\n")
 ```
 
 Se ve el número total de filas.
 
-```         
+```{r}
 cat("Total filas en genomas:", nrow(genomas), "\n")
 ```
 
 Se ve el número de valores únicos en acc.
 
-```         
+```{r}
 cat("Valores únicos en acc:", length(unique(genomas$acc)), "\n")
 ```
 
 Se comprueba si son iguales. Si lo son, es llave.
 
-```         
+```{r}
 es_llave <- nrow(genomas) == length(unique(genomas$acc)) cat("¿acc es llave?", es_llave, "\n") 
 ```
 
 Si no es la llave, encontrar duplicados.
 
-```         
+```{r}
 if (!es_llave) {    
   # Encontrar accession duplicados    duplicados <- genomas$acc[duplicated(genomas$acc)]    
   cat("\n⚠️  ACCESSION DUPLICADOS:\n")    
@@ -802,9 +802,9 @@ if (!es_llave) {
       print(genomas[genomas$acc == acc,                          c("Assembly.Accession", "Organism.Name")])    }
 ```
 
-Expliación de por qué ocurre
+Expliación de por qué ocurre.
 
-```         
+```{r}
 cat("\n--- EXPLICACIÓN ---\n")    
 cat("Diferentes versiones del mismo ensamblaje (.1, .2, etc.)\n")    
 cat("Ahora comparten el mismo acc sin versión\n")    
@@ -814,7 +814,7 @@ cat("\n✅ ¡Perfecto! acc sigue siendo llave única\n") }
 
 Se puede comprobar si hay NA.
 
-```         
+```{r}
 cat("\n¿Valores NA en acc?", any(is.na(genomas$acc)), "\n")
 ```
 
@@ -822,22 +822,22 @@ cat("\n¿Valores NA en acc?", any(is.na(genomas$acc)), "\n")
     compáralo con el "Assembly.Stats.ATGC.Count". Si observas alguna
     diferencia, intenta explicarla.
 
-Añadir base_count desde ENA usando match()
+Añadir base_count desde ENA usando match().
 
-```         
+```{r}
 genomas$base_count <- genomas.ena[match(genomas$acc, genomas.ena$accession), 'base_count']
 ```
 
 Ver las nuevas columnas
 
-```         
+```{r}
 cat("=== COMPARACIÓN DE LONGITUDES ===\n") 
 head(genomas[, c("Assembly.Accession", "acc",                   "Assembly.Stats.ATGC.Count", "base_count")], 20) 
 ```
 
-Crear data frame para comparación
+Crear data frame para comparación.
 
-```         
+```{r}
 comparacion <- data.frame(    
    accession = genomas$Assembly.Accession,    
    acc_sin_version = genomas$acc,    
@@ -847,38 +847,38 @@ comparacion <- data.frame(
 )
 ```
 
-Calcular diferencias
+Calcular diferencias.
 
-```         
-comparacion$diferencia <- comparacion$ncbi_length - comparacion$ena_length comparacion$dif_relativa <- round(comparacion$diferencia / comparacion$ena_length * 100, 2) 
+```{r}
+comparacion$diferencia <- comparacion$ncbi_length - comparacion$ena_length comparacion$dif_relativa <- round(comparacion$diferencia / comparacion$ena_length * 100, 2)
 ```
 
-Análisis de diferencias
+Análisis de diferencias.
 
-```         
+```{r}
 cat("\n=== ANÁLISIS DE DIFERENCIAS ===\n") 
 cat("Coinciden exactamente:", sum(comparacion$diferencia == 0, na.rm = TRUE), "\n") 
 cat("Difieren:", sum(comparacion$diferencia != 0, na.rm = TRUE), "\n") 
 cat("Sin datos en ENA:", sum(is.na(comparacion$ena_length)), "\n")
 ```
 
-Ver casos con diferencia
+Ver casos con diferencia.
 
-```         
+```{r}
 if (any(comparacion$diferencia != 0, na.rm = TRUE)) {    cat("\n--- CASOS CON DIFERENCIA (top 10) ---\n")     
   diffs <- comparacion[!is.na(comparacion$ena_length) &                          comparacion$diferencia != 0, ]    diffs <- diffs[order(abs(diffs$diferencia), decreasing = TRUE), ]    print(head(diffs, 10)) } 
 ```
 
-Resumen estadístico de diferencias
+.Resumen estadístico de diferencias.
 
-```         
+```{r}
 cat("\n--- RESUMEN DE DIFERENCIAS ---\n") 
 summary(comparacion$diferencia[!is.na(comparacion$ena_length)])
 ```
 
-Visualización
+Visualización.
 
-```         
+```{r}
 par(mfrow = c(1, 2))
 ```
 
