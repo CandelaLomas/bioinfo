@@ -1,0 +1,147 @@
+/* css styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap');
+
+body {
+  background: #F7F7F7F7;
+  background-image: url('http://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #2C3E50;
+  line-height: 1.5;
+}
+
+/* SIN RECUADROS PESADOS */
+.container,
+.main-content,
+.quarto-title-block,
+.page {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* ===== TÍTULOS ===== */
+h1 {
+  color: #00688B;
+  font-weight: 600;
+  font-size: 2.1rem;
+  border-left: 4px solid #009ACD;
+  padding-left: 20px;
+}
+
+h2 {
+  color: #00688B;
+  font-weight: 500;
+  border-bottom: 2px solid #D4E6FF;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+h3 {
+  color: #2C3E50;
+  font-weight: 500;
+}
+
+/* ===== NAVBAR (limpia, moderna) ===== */
+.navbar {
+  background: white !important;
+  backdrop-filter: blur(0px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid #EFF3F8;
+}
+
+.navbar .navbar-brand {
+  color: #1B3B5C !important;
+  font-weight: 700;
+}
+
+.navbar .nav-link {
+  color: #2C3E50 !important;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: #4A9EFF !important;
+  background: #EFF7FF;
+  border-radius: 12px;
+}
+
+/* ===== MENÚ DESPLEGABLE ===== */
+.dropdown-menu {
+  background: white;
+  border: 1px solid #E2EAF3;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.dropdown-item {
+  color: #2C3E50;
+}
+
+.dropdown-item:hover {
+  background: #EFF7FF;
+  color: #4A9EFF;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #4A9EFF;
+  text-decoration: none;
+  border-bottom: 1px solid #CDE5FF;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: #1B3B5C;
+  border-bottom-color: #4A9EFF;
+}
+
+/* ===== CÓDIGO ===== */
+code {
+  background: #F1F6FD;
+  color: #E56B6B;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+}
+
+/* ===== DETALLES DIVERTIDOS (pero profesionales) ===== */
+blockquote {
+  border-left: 4px solid #4A9EFF;
+  background: #F9FBFE;
+  padding: 16px 20px;
+  border-radius: 20px;
+  color: #2C3E50;
+}
+
+/* tablas con estilo */
+th {
+  background: #EFF7FF;
+  color: #1B3B5C;
+  font-weight: 600;
+}
+
+td {
+  border-bottom: 1px solid #E2EAF3;
+}
+
+.about-container {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  background: #f0f0f0;
+  padding: 20px;
+  width: 250px;
+  border-radius: 16px;
+}
+
+.main-content {
+  flex: 1;
+}

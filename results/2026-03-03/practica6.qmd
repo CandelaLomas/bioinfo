@@ -3,7 +3,8 @@ title: "Práctica 6. Búsquedas programáticas en Interpro"
 lang: es
 date: today
 execute: 
-  output: false
+  eval: false
+  echo: true
   error: true
 engine: knitr
 #bibliography: ../../references.bib
@@ -208,8 +209,8 @@ pfam01[['results']] #Los 20 registros que salen.
 pfam01[['results']][['metadata']] #Solo los metadatos (datos que describen a los datos que tenemos).
 ```
 
-Los siguientes 20 registros de Pfam se encuentran en `pfam01[['next']]`:
-`r pfam01[['next']]`. Y los podemos descargar igual.
+Los siguientes 20 registros de Pfam se encuentran en
+\`pfam01\[\['next'\]\]\` y los podemos descargar igual.
 
 Esto es para visualizarlo como una tabla:
 
@@ -548,6 +549,7 @@ comprobarlo con la función `setdiff()`, que devuelve los elementos del
 primer vector que no aparecen en el segundo:
 
 ```{r}
+#| eval: false
 SoloEquinodermos <- setdiff(equinodermata$accession, chordata$accession)
 # Del marco de datos "equinodermata" selecciono las filas que corresponden a los
 # dominios exclusivos de equinodermos, y las filas "accession" y "name":

@@ -1,14 +1,29 @@
+# Datos de secuenciación
 *.fastq
 *.fastq.gz
 *.bam
 *.sam
 *.vcf
 *.bam.bai
+
+# Carpeta de datos
 data/
+
+# Archivos temporales
 *.log
 *.aux
-*.out
 .Rhistory
 .RData
 .DS_Store
-EOF
+
+# Archivos grandes de ensamblaje
+*.tar.gz
+*.zip
+ncbi_dataset/
+asm1/
+asm1_eval/
+
+# Quarto
+_freeze/
+
+# Fin

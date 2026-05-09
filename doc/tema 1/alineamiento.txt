@@ -1,0 +1,61 @@
+########################################
+# Program: Biostrings (version 2.70.3), a Bioconductor package
+# Rundate: Tue Mar 17 13:51:47 2026
+########################################
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: P1
+# 2: S1
+# Matrix: NA
+# Gap_penalty: 14.0
+# Extend_penalty: 4.0
+#
+# Length: 448
+# Identity:     195/448 (43.5%)
+# Similarity:    NA/448 (NA%)
+# Gaps:          95/448 (21.2%)
+# Score: -1155.646
+#
+#
+#=======================================
+
+P1                 1 AGCTCCAATAGCGTATAT---TAAAGTTGCTGCAGTTAAAAAGCTCGTAG     47
+                          | || | |   |    | | |  |   |||      |   || ||
+S1                 1 -----CCATGGTGACCACGGGTGACGGGGAATCAGGGTTCGATTCCGGAG     45
+
+P1                48 TTGGATCTTGGGATCGAGCTGGCGGTCCGCCGCGAGGCGAGCTACCGCC-     96
+                       ||| | || ||    |||  |    |   |  |||| |||   |||  
+S1                46 AGGGAGCCTGAGAAACGGCTACCACATCCAAGGAAGGC-AGCAGGCGCGC     94
+
+P1                97 ---TGTCCCAGCCCCTGTCTCTCGGCGCCC----CCTCGATGCTCTTAAC    139
+                        |  ||||  ||| | | |  || |       |    |    |   ||
+S1                95 AAATTACCCACTCCC-GACCCGGGGAGGTAGTGACGAAAAATAACAATAC    143
+
+P1               140 TGAGTGTCCCGCGGGGCCC--------GAA-GCGTTTACTTTGAAAAAAT    180
+                      | |  ||   || |||||        ||| | ||  ||||| |||   |
+S1               144 AG-GACTCTTTCGAGGCCCTGTAATTGGAATGAGTCCACTTT-AAATCCT    191
+
+P1               181 TA---GAGTGTTCAAAGCAGG------CTGG---------CCGCCGGAAT    212
+                     |    |||  | ||  | |||      ||||         |||| | |||
+S1               192 TCCGCGAGGATCCATTGGAGGGCAAGTCTGGTGCCAGCAGCCGCGGTAAT    241
+
+P1               213 ACTCCAGCT-----AG-GAATAATGGAATAGGACTCCGGTTCTATT----    252
+                       |||||||     || | ||| |  | | |  || | |||  |      
+S1               242 --TCCAGCTCCAATAGCGTATATTAAAGTTG--CTGCAGTTAAAAAGCTC    287
+
+P1               253 -TTGTTGGTTTTCGGAAACGGG----------GCCATGATTAAGAGGGAC    291
+                      | ||||| | | || | ||||          |||  ||    |||  ||
+S1               288 GTAGTTGGATCTTGGGAGCGGGCGGGCGGTCCGCCGCGAGGC-GAGCCAC    336
+
+P1               292 GGCCGG-----GGGCATTCGTATTGTGCCGCTAGAGGTGAAATTCTTGGA    336
+                      ||| |     |  | ||  | | |   | |    | ||   ||    ||
+S1               337 CGCCCGTCCCCGCCCCTTGCTCTCGGCGCCCCCTCGATGCTCTTAGCTGA    386
+
+P1               337 CCGGCGCAAGACGAACTAAAGCGAAAGCATTTGCCAAGAATGTTTTCA    384
+                       | | |  |  |  | ||       || ||| |          ||  
+S1               387 GTGTCCCGCGGGGCCCGAA-------GCGTTTAC----------TTTG    417
+
+
+#---------------------------------------
+#---------------------------------------

@@ -1,0 +1,13 @@
+---
+title: "Cuaderno de Bioinformática"
+---
+
+Hola!
+
+Este es mi cuaderno de bioinformática.
+
+Aquí encontrarás todas las prácticas de la asignatura resueltas y con comentarios aclaratorios.
+
+Además, en la sección "Sobre mi" encontrarás algo de información personal.
+
+\<3

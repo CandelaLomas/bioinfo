@@ -1,0 +1,27 @@
+---
+title: "Sobre mí"
+---
+
+::::: about-container
+::: sidebar
+<h3>📦 Contacto</h3>
+
+<p>📧 canlola\@alumni.uv.es</p>
+
+<p>🐙 [GitHub](https://github.com/CandelaLomas)</p>
+
+<p>📷 @_lomas17</p>
+:::
+
+::: main-content
+<p>Hola, soy Candela Lomas Lara.</p>
+
+<p>Actualmente estoy cursando el último curso de Biotecnología.</p>
+
+<p>Esta web ha sido creada gracias a la asignatura de Bioinformática ;).</p>
+
+<p>Me gusta leer, Taylor Swift y el Atlético de Madrid.</p>
+
+<p>\<3</p>
+:::
+:::::

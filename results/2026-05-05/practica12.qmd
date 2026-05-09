@@ -1,14 +1,20 @@
 ---
-title: "práctica 12"
-author: "Candela Lomas Lara"
-format: html
+title: "Práctica 12. Análisis de expresión diferencial"
+lang: es
+date: today
 execute: 
   eval: false
+  echo: true
+  error: true
+engine: knitr
+language:
+   title-block-published: "Última actualización:"
+   section-title-references: "Bibliografía"
+format:
+   html:
+      embed-resources: true
 editor: visual
-engine: markdown
 ---
-
-# Práctica 12. Análisis de expresión diferencial.
 
 ## Preparación.
 
@@ -54,7 +60,7 @@ head(muestras)
 2.  ¿Cuál es el número total de lecturas por muestra?
 
 ```{r}
-otal_lecturas <- colSums(genex[, 3:ncol(genex)])
+total_lecturas <- colSums(genex[, 3:ncol(genex)])
 total_lecturas
 ```
 

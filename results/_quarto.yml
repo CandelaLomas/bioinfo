@@ -1,0 +1,53 @@
+project:
+  type: website
+  render: 
+    - index.qmd
+    - about.qmd         
+    - practicas/*.qmd
+
+execute:
+  eval: false
+  echo: true
+  freeze: true
+
+website:
+  title: "Cuaderno de Bioinformática"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: about.qmd
+        text: Sobre mi
+      - text: "Prácticas"
+        menu: 
+          - text: "Práctica 1"
+            href: practicas/practica1.qmd
+          - text: "Práctica 2"
+            href: practicas/practica2.qmd
+          - text: "Práctica 3"
+            href: practicas/practica3.qmd
+          - text: "Práctica 4"
+            href: practicas/practica4.qmd
+          - text: "Práctica 5"
+            href: practicas/practica5.qmd
+          - text: "Práctica 6"
+            href: practicas/practica6.qmd
+          - text: "Práctica 7"
+            href: practicas/practica7.qmd
+          - text: "Práctica 8"
+            href: practicas/practica8.qmd
+          - text: "Práctica 9"
+            href: practicas/practica9.qmd
+          - text: "Práctica 10"
+            href: practicas/practica10.qmd
+          - text: "Práctica 11"
+            href: practicas/practica11.qmd
+          - text: "Práctica 12"
+            href: practicas/practica12.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+editor: visual

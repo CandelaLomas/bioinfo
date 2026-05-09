@@ -1,0 +1,1000 @@
+  301  which htslib
+  302  which bcftools
+  303  bcftools
+  304  sudo apt install bcftools
+  305  which bcftools
+  306  which htslib
+  307  conda install -c bioconda freebayes
+  308  chmod u+x fastp
+  309  cd /home/canlola/miniconda3/bin/
+  310  chmod u+x fastp
+  311  cd ..
+  312  which
+  313  pwd
+  314  which freebayes
+  315  cd /home/canlola/miniconda3/bin/
+  316  chmod u+x freebayes
+  317  ./fastp
+  318  ./freebayes
+  319  cd ..
+  320  cd /mnt/c/Users/cande/
+  321  cd 'OneDrive - Universitat de València'
+  322  cd bioinfo
+  323  cd results
+  324  cd 2026-02-10
+  325  cd ..
+  326  cd .. 
+  327  cd dat
+  328  cda data
+  329  cd data
+  330  mkdir 2026-02-10
+  331  cd 2026-02-10
+  332  if [ ! -e DRR025089_1.fastq.gz ]; then
+  333     wget -o /dev/null         ftp://ftp.sra.ebi.ac.uk/vol1/fastq/DRR025/DRR025089/DRR025089_1.fastq.gz; fi
+  334  if [ ! -e DRR025089_2.fastq.gz ]; then    wget -o /dev/null         ftp://ftp.sra.ebi.ac.uk/vol1/fastq/DRR025/DRR025089/DRR025089_2.fastq.gz; fi
+  335  ls -1
+  336  zless DRR025089_1.fastq.gz
+  337  zless DRR025089_2.fastq.gz
+  338  gunzip -c DRR025089_1.fastq.gz | less -S
+  339  gunzip -c DRR025089_2.fastq.gz | less -S
+  340  fastp DRR025089_1.fastq.gz
+  341  cd ~/bioinfo/data/2026-02-10
+  342  fastp DRR025089_1.fastq.gz
+  343  cd ../../../../
+  344  pwd
+  345  cd home
+  346  cd canlola
+  347  ls -1
+  348  fastp DRR025089_1.fastq.gz
+  349  cd bioinfo
+  350  find ~ -name "DRR025089*.fastq.gz" 2>/dev/null
+  351  # Desde WSL, copia los archivos que descargaste en Windows
+  352  cp /mnt/c/Users/cande/OneDrive\ -\ Universitat\ de\ València/bioinfo/data/2026-02-10/DRR025089*.fastq.gz ~/bioinfo/data/2026-02-10
+  353  mkdir -p ~/bioinfo/data/2026-02-10
+  354  cp /mnt/c/Users/cande/OneDrive\ -\ Universitat\ de\ València/bioinfo/data/2026-02-10/DRR025089*.fastq.gz ~/bioinfo/data/2026-02-10
+  355  ls -la ~/bioinfo/data/2026-02-10
+  356  pwd
+  357  cd bioinfo
+  358  cp -r /mnt/c/Users/cande/OneDrive\ -\ Universitat\ de\ València/bioinfo/results/* ~/bioinfo/results/ 2>/dev/null
+  359  cp -r /mnt/c/Users/cande/OneDrive\ -\ Universitat\ de\ València/bioinfo/doc/* ~/bioinfo/doc/ 2>/dev/null
+  360  cp /mnt/c/Users/cande/OneDrive\ -\ Universitat\ de\ València/bioinfo/.gitignore ~/bioinfo/ 2>/dev/null
+  361  ls -1
+  362  cp -r /mnt/c/Users/cande/OneDrive\ -\ Universitat\ de\ València/bioinfo/data/* ~/bioinfo/data/ 2>/dev/null
+  363  cd ~/bioinfo
+  364  git init
+  365  git branch -m soca
+  366  git add .
+  367  git commit -m "Primer commit desde WSL"
+  368  pwd
+  369  ls ~/bioinfo/data/
+  370  cd data
+  371  cd 2026-02-10
+  372  fastp DRR025089_1.fastq.gz
+  373  find ~/bioinfo -name "DRR025089*.fastq.gz" 2>/dev/null
+  374  ls -1 /home/canlola/bioinfo/data/2026-02-10/DRR025089_1.fastq.gz
+  375  ls -l /home/canlola/bioinfo/data/2026-02-10/DRR025089_1.fastq.gz
+  376  chmod +r /home/canlola/bioinfo/data/2026-02-10/DRR025089*.fastq.gz
+  377  fastp DRR025089_1.fastq.gz
+  378  ls -lh 
+  379  ls -lh RR025089_1.fastq.gz
+  380  # Mira el tamaño del archivo
+  381  ls -lh /home/canlola/bioinfo/data/2026-02-10/DRR025089_1.fastq.gz
+  382  ./fastp DRR025089_1.fastq.gz
+  383  fastp ./DRR025089_1.fastq.gz
+  384  file DRR025089_1.fastq.gz
+  385  zcat DRR025089_1.fastq.gz | head -n 4
+  386  fastp --version
+  387  fastp -i ./DRR025089_1.fastq.gz -o test.fastq.gz
+  388  rm ~/bioinfo/data/2026-02-10/DRR025089*.fastq.gz
+  389  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/DRR025/DRR025089/DRR025089_1.fastq.gz
+  390  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/DRR025/DRR025089/DRR025089_2.fastq.gz
+  391  fastp ./DRR025089_1.fastq.gz
+  392  zcat DRR025089_1.fastq.gz | wc -l
+  393  zcat DRR025089_2.fastq.gz | wc -l
+  394  if [ ! -e referencia.fa ]; then    wget -o /dev/null -O referencia.fa         https://www.ebi.ac.uk/ena/browser/api/fasta/GCA_042137995.2 ; fi
+  395  grep -c "^>" referencia.fa
+  396  if [ ! -e fastp.html ]; then
+  397     fastp -i DRR025089_1.fastq.gz          -o DRR025089_1_clean.fastq          -I DRR025089_2.fastq.gz          -O DRR025089_2_clean.fastq          --merge          --merged_out DRR025089_m_clean.fastq; fi
+  398  if [ ! -e fastp.html ]; then    fastp -i DRR025089_1.fastq.gz          -o DRR025089_1_clean.fastq          -I DRR025089_2.fastq.gz          -O DRR025089_2_clean.fastq          --merge          --merged_out DRR025089_m_clean.fastq; fi
+  399  ls -la *_clean.fastq fastp.html fastp.json
+  400  ls -lh *.fastq.gz *_clean.fastq
+  401  ls -la *_clean.fastq fastp.html fastp.json
+  402  ls -lh *.fastq.gz *_clean.fastq
+  403  fastp -h | less
+  404  explorer.exe fastp.html
+  405  mkdir 'ejercicio 3' 
+  406  cd 'ejecicio 3'
+  407  cd 'ejercicio 3'
+  408  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/DRR025/DRR025090/DRR025090_1.fastq.gz
+  409  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/DRR025/DRR025090/DRR025090_2.fastq.gz
+  410  ls -lh
+  411  file DRR025090
+  412  file DRR025088_1.fastq.gz
+  413  # Debe decir: gzip compressed data
+  414  zcat DRR025088_1.fastq.gz | wc -l
+  415  zcat DRR025090_1.fastq.gz | wc -l
+  416  zcat DRR025090_2.fastq.gz | wc -l
+  417  fastp -i DRR025090_1.fastq.gz       -o DRR025090_1_clean.fastq       -I DRR025090_2.fastq.gz       -O DRR025090_2_clean.fastq       --merge       --merged_out DRR025090_m_clean.fastq
+  418  ls -lh
+  419  ls -la
+  420  explorer.exe fastp.html
+  421  cd ..
+  422  if [ ! -e DRR025089.bam ]; then    if [ ! -e DRR025089_unsorted.bam ]; then       if [ ! -e DRR025089.sam ]; then          if [ ! -e referencia.fa.bwt ]; then             bwa index referencia.fa;          fi;          bwa mem -M -R '@RG\tID:DRR025089\tSM:SAMD00022947'                  -o DRR025089.sam                  referencia.fa                  DRR025089_1_clean.fastq                  DRR025089_2_clean.fastq          1> bwa.log 2> bwa.err;       fi;       samtools view -b -o DRR025089_unsorted.bam DRR025089.sam;     fi;     samtools sort -o DRR025089.bam DRR025089_unsorted.bam;     samtools index DRR025089.bam; fi
+  423  if [ ! -e referencia.fa ]; then    wget -O referencia.fa https://www.ebi.ac.uk/ena/browser/api/fasta/GCA_042137995.2; fi
+  424  bwa mem -M -R '@RG\tID:DRR025089_m\tSM:SAMD00022947'         -o DRR025089_m.sam         referencia.fa         DRR025089_m_clean.fastq         1> bwa_m.log 2> bwa_m.err
+  425  samtools view -b -o DRR025089_m_unsorted.bam DRR025089_m.sam
+  426  samtools sort -o DRR025089_m.bam DRR025089_m_unsorted.bam
+  427  samtools index DRR025089_m.bam
+  428  bwa mem -M -R '@RG\tID:DRR025089_m\tSM:SAMD00022947'         -o DRR025089_m.sam         referencia.fa         DRR025089_m_clean.fastq         1> bwa_m.log 2> bwa_m.err
+  429  samtools view -b -o DRR025089_m_unsorted.bam DRR025089_m.sam
+  430  samtools sort -o DRR025089_m.bam DRR025089_m_unsorted.bam
+  431  samtools index DRR025089_m.bam
+  432  ls -la ~/bioinfo/data/2026-02-10/DRR025089_m_clean.fastq
+  433  bwa mem -M -R '@RG\tID:DRR025089_m\tSM:SAMD00022947' -o DRR025089_m.sam referencia.fa DRR025089_m_clean.fastq 1> bwa_m.log 2> bwa_m.err
+  434  bwa mem -M -R '@RG\tID:DRR025089_m\tSM:SAMD00022947'         -o DRR025089_m.sam         referencia.fa         DRR025089_m_clean.fastq         1> bwa_m.log 2> bwa_m.err
+  435  ps aux | grep bwa
+  436  ls -lh DRR025089_m.sam
+  437  cd bioinfo/data/2026-02-10
+  438  ls -lh DRR025089_m_clean.fastq
+  439  bwa mem -M -R '@RG\tID:DRR025089_m\tSM:SAMD00022947'         -o DRR025089_m.sam         referencia.fa         DRR025089_m_clean.fastq         1> bwa_m.log 2> bwa_m.err
+  440  ls -lh DRR025089_m.sam
+  441  samtools view -b -o DRR025089_m_unsorted.bam DRR025089_m.sam
+  442  samtools sort -o DRR025089_m.bam DRR025089_m_unsorted.bam
+  443  samtools index DRR025089_m.bam
+  444  samtools tview DRR025089_m.bam referencia.fa
+  445  if [ ! -e DRR025089.vcf ]; then    freebayes -p 1 -f referencia.fa DRR025089.bam > DRR025089.vcf; fi
+  446  cd ..
+  447  cd --
+  448  cd bioinfo
+  449  cd results
+  450  cd 2026-02-10
+  451  mv 'guio-es (1).qmd' 'guión práctica 3'
+  452  mv 'guión práctica 3''guión práctica 3.qmd'
+  453  mv 'guión práctica 3' 'guión práctica 3.qmd'
+  454  cd ..
+  455  cd ~/bioinfo
+  456  # 1. Scripts y código (si has creado alguno)
+  457  git add *.sh *.R *.md 2>/dev/null
+  458  # 2. Documentación y respuestas
+  459  git add README.md respuestas_ejercicios.txt 2>/dev/null
+  460  # 3. Resultados pequeños (estadísticas, gráficos)
+  461  git add DRR025089.stats.txt COV.txt 2>/dev/null
+  462  # 4. El .gitignore (por si acaso)
+  463  git add .gitignore
+  464  # 5. Haz commit
+  465  git commit -m "Añadidos resultados de alineamiento y estadísticas"
+  466  # 6. Sube a GitHub
+  467  git push origin soca
+  468  git add *.txt *.md *.html *.json 2>/dev/null
+  469  git add respuestas_ejercicios.txt 2>/dev/null
+  470  git commit -m "Añadidos resultados y documentación de la práctica"
+  471  git push origin soca
+  472  cat ~/bioinfo/.gitignore
+  473  nano ~/bioinfo/.gitignore
+  474  git rm -r --cached data/
+  475  git add .gitignore
+  476  git commit -m "Actualizado .gitignore para ignorar data/ y archivos grandes"
+  477  git remote add origin git@github.com:CandelaLomas/bioinfo.git
+  478  git remote -v
+  479  git push -u origin rama
+  480  git branch
+  481  git push -u origin soca
+  482  git add LICENSE.txt
+  483  git add results/ 2>/dev/null
+  484  git add data/2026-02-10/COV.txt
+  485  git add data/2026-02-10/DRR025089.stats.txt
+  486  git add data/2026-02-10/fastp.html
+  487  git add data/2026-02-10/fastp.json
+  488  git commit -m "Añadidos resultados finales: stats, cov, fastp, licencia"
+  489  git push origin soca
+  490  eval "$(ssh-agent -s)"
+  491  ssh-add ~/.ssh/id_ed25519
+  492  ssh-keygen -t ed25519 -C "canlola@alumni.uv.es" -f ~/.ssh/id_ed25519_nueva
+  493  ssh-add ~/.ssh/id_ed25519
+  494  ssh-keygen -t ed25519 -C "canlola@alumni.uv.es" -f ~/.ssh/id_ed25519
+  495  cat ~/.ssh/id_ed25519.pub
+  496  ssh -T git@github.com
+  497  git push origin soca
+  498  cd bioinfo/data/2026-02-10
+  499  ls -lh DRR025089_m_clean.fastq
+  500  ls -lh referencia.fa referencia.fa.bwt
+  501  cat bwa_m.err
+  502  bwa mem -M -R '@RG\tID:DRR025089_m\tSM:SAMD00022947'         -o DRR025089_m.sam         referencia.fa         DRR025089_m_clean.fastq         1> bwa_m.log 2> bwa_m.err
+  503  cat bwa_m.err
+  504  samtools view -b -o DRR025089_m_unsorted.bam DRR025089_m.sam
+  505  samtools sort -o DRR025089_m.bam DRR025089_m_unsorted.bam
+  506  samtools index DRR025089_m.bam
+  507  samtools merge DRR025089_merged.bam DRR025089.bam DRR025089_m.bam
+  508  du -sh DRR025089_*clean.fastq referencia.fa referencia.fa.* DRR025089.sam
+  509  bwa mem -M -R '@RG\tID:DRR025089\tSM:SAMD00022947'         referencia.fa DRR025089_1_clean.fastq DRR025089_2_clean.fastq | samtools view -u - | samtools sort - > DRR025089.bam
+  510  if [ ! -e DRR025089.stats.txt ]; then    samtools stats DRR025089.bam > DRR025089.stats.txt; fi
+  511  # Extraemos la sección sobre profundidad de cobertura
+  512  if [ ! -e stat.$i.txt ]; then    grep ^COV DRR025089.stats.txt | cut -f 2- > COV.txt; fi
+  513  R
+  514  grep "^>" referencia.fa
+  515  samtools tview DRR025089.bam referencia.fa
+  516  pwd
+  517  ip a
+  518  sudo systemctl status ssh
+  519  # Iniciar SSH ahora
+  520  sudo systemctl start ssh
+  521  # Hacer que SSH se inicie automáticamente al encender Linux
+  522  sudo systemctl enable ssh
+  523  # Verificar que ya está funcionando
+  524  sudo systemctl status ssh
+  525  sudo apt update
+  526  sudo apt install openssh-server -y
+  527  sudo systemctl status ssh
+  528  sudo systemctl enable ssh
+  529  sudo systemctl status ssh
+  530  ip a
+  531  sudo ufw status
+  532  sudo apt update
+  533  sudo apt install ufw -y
+  534  sudo ufw status
+  535  sudo ufw allow ssh
+  536  sudo systemctl status ssh
+  537  R
+  538  sudo apt update
+  539  sudo apt install libfontconfig1-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+  540  sudo apt install libharfbuzz-dev libfribidi-dev
+  541  sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
+  542  R
+  543  pwd
+  544  ls
+  545  cd bioinfo
+  546  ls
+  547  wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/datasets
+  548  wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/dataformat
+  549  chmod +x datasets dataformat
+  550  ./datasets --help
+  551  ./dataformat --help
+  552  ls
+  553  cd results
+  554  cd 2026-02-17
+  555  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  556  cd ..
+  557  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  558  cd ..
+  559  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  560  ls
+  561  pwd
+  562  sudo mv datasets /home/canlola/bioinfo/bin/
+  563  find ~ -name "datasets" -o -name "dataformat" 2>/dev/null
+  564  rm datasets dataformat
+  565  cd bioinfo
+  566  ls
+  567  rm datasets dataformat
+  568  cd 
+  569  cd bioinfo 
+  570  ls
+  571  cd
+  572  ls
+  573  which python
+  574  cd bioinfo
+  575  ls
+  576  cd
+  577  cd miniconda3/bin
+  578  wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/datasets
+  579  wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/dataformat
+  580  ls -la datasets dataformat
+  581  chmod +x datasets dataformat
+  582  echo 'export PATH="$HOME/bioinfo/bin:$PATH"' >> ~/.bashrc
+  583  source ~/.bashrc
+  584  which datasets
+  585  datasets --version
+  586  find ~ -name "datasets" -o -name "dataformat" 2>/dev/null
+  587  which datasets
+  588  which dataformat
+  589  if [ ! -e trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  590  cd ../..
+  591  cd bioinfo
+  592  cd results
+  593  cd 2026-02-17
+  594  if [ ! -e trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  595  R
+  596  ls
+  597  ls -la trypanosoma_annotated.txt
+  598  cd ~
+  599  which datasets
+  600  which dataformat
+  601  cd bioinfo/results/2026-02-17
+  602  ~/bioinfo/bin/datasets summary genome taxon Trypanosoma --annotated --as-json-lines | ~/bioinfo/bin/dataformat tsv genome --fields accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt
+  603  cd ~
+  604  # Buscar en todo el sistema los programas
+  605  find ~ -name "datasets" -o -name "dataformat" 2>/dev/null
+  606  cd bioinfo
+  607  mkdir -p bin
+  608  ls
+  609  cd bin
+  610  wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/datasets
+  611  wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/dataformat
+  612  chmod +x datasets dataformat
+  613  ls -la datasets dataformat
+  614  ./datasets --version
+  615  cd 
+  616  cd bioinfo/results/2026-02-17
+  617  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  618  ls -lh trypanosoma_annotated.txt
+  619  ~/bioinfo/bin/datasets summary genome taxon Trypanosoma --annotated --as-json-lines > test.json
+  620  ls -lh test.json
+  621  cat test.json
+  622  head -20 human.json
+  623  ~/bioinfo/bin/datasets summary genome taxon human --as-json-lines > human.json
+  624  ls -lh human.json
+  625  head -20 human.json
+  626  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  627  rm trypanosoma_annotated.txt
+  628  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  629  R
+  630  if [ ! -e ncbi_data/data/GCA_022059095.1/genomic.gff ]; then    if [ ! -e ncbi_dataset.zip ]; then       datasets download genome accession GCA_022059095.1 --include genome,gff3;    fi;    unzip ncbi_dataset.zip; fi
+  631  ls -la ncbi_dataset/data/GCA_022059095.1/
+  632  R
+  633  git init
+  634  git add
+  635  git add .
+  636  git commit -m "Añadir práctica Trypanosoma 2026-02-17"
+  637  cat > .gitignore << 'EOF'
+  638  # Archivos de R
+  639  .RData
+  640  .Rhistory
+  641  *.Rproj
+  642  .Rproj.user
+  643  # Archivos grandes de datos
+  644  *.zip
+  645  *.gz
+  646  *.tar
+  647  *.gff
+  648  *.gff3
+  649  *.fasta
+  650  *.fna
+  651  *.faa
+  652  *.json
+  653  *.jsonl
+  654  ncbi_dataset/
+  655  ncbi_data/
+  656  # Archivos temporales
+  657  *.tmp
+  658  *.log
+  659  *.aux
+  660  *.out
+  661  # Archivos del sistema
+  662  .DS_Store
+  663  Thumbs.db
+  664  EOF
+  665  git rm --cached ncbi_dataset.zip
+  666  git rm --cached -r ncbi_dataset/
+  667  git rm --cached human.json
+  668  git rm --cached test.json
+  669  git rm --cached .RData
+  670  git rm --cached .Rhistory
+  671  git rm --cached "guión práctica 4.qmd" 2>/dev/null || true
+  672  git rm --cached md5sum.txt 2>/dev/null || true
+  673  git add .gitignore
+  674  git commit --amend -m "Práctica Trypanosoma 2026-02-17 (archivos importantes)"
+  675  git ls-files
+  676  git remote add origin https://github.com/CandelaLomas/bioinfo/tree/rama/results
+  677  git remote -v
+  678  git pull origin main --allow-unrelated-histories
+  679  git add .
+  680  git commit -m 
+  681  git commit -m "Práctica 4 añadida"
+  682  git push origin main
+  683  nano .gitignore
+  684  cd ~/bioinfo
+  685  git status
+  686  git add results/2026-02-17/
+  687  git status
+  688  cd results/2026-02-17
+  689  rm -rf .giy
+  690  rm -rf .git
+  691  cd ~/bioinfo
+  692  git add results/2026-02-17
+  693  git status
+  694  cd ~/bioinfo/results/2026-02-17
+  695  pwd
+  696  rm -rf .git
+  697  ls -la | grep .git
+  698  history >'práctica 4.txt'
+  699  cd ~/bioinfo
+  700  git add -f results/2026-02-17/
+  701  git status
+  702  # Hacer commit con la carpeta nueva
+  703  git commit -m "Añadir práctica Trypanosoma 2026-02-17"
+  704  # Ver el resultado
+  705  git log --oneline -1
+  706  git status
+  707  git push origin soca
+  708  git pull
+  709  history >'práctica 4.txt'
+  710  git branch
+  711  git clone https://github.com/repos
+  712  git pull origin main
+  713  pwd
+  714  ls -la
+  715  find . -name ".git" -type d 2>/dev/null
+  716  cd bioinfo
+  717  git branch -a
+  718  cd ~/bwa
+  719  git branch -a
+  720  cd ~/bionfo 
+  721  cd ~/bioinfo
+  722  git checkout soca
+  723  git fetch origin rama
+  724  git checkout -b rama-local origin/rama
+  725  git status
+  726  git stash
+  727  git checkout -b rama-local origin/rama
+  728  git branch
+  729  ls -la
+  730  git status
+  731  git stash list
+  732  git stash pop
+  733  cd results
+  734  git add '2026-02-10'
+  735  git status
+  736  git push origin rama
+  737  cd ~/bioinfo
+  738  git branch
+  739  git branch -a
+  740  git push origin rama-loca:rama
+  741  git push origin rama-local:rama
+  742  git branch
+  743  git status
+  744  git log --oneline --graph --all --decorate
+  745  git add results/2026-02-17/
+  746  git commit -m "Añado los resultados de la práctica 3"
+  747  git push origin rama 
+  748  git push origin rama-loca:rama 
+  749  git push origin rama-local:rama 
+  750  git branch -a
+  751  git branch -d soca
+  752  git branch -D soca
+  753  git branch -d soca-local
+  754  git branch -a
+  755  git push origin --delete soca
+  756  git remote prune origin
+  757  git branch -a
+  758  sudo apt-get update
+  759  sudo apt-get install datasets dataformat
+  760  conda create -n ncbi_datasets -y
+  761  conda activate ncbi_datasets
+  762  conda install -c conda-forge ncbi-datasets-cli -y
+  763  datasets --version
+  764  dataformat --version
+  765  dataformat version
+  766  which datasets
+  767  find ~ -name "dataformat" 2>/dev/null
+  768  ls -la /home/canlola/bioinfo/bin/datasets
+  769  ls -la /home/canlola/miniconda3/envs/ncbi_datasets/bin/datasets
+  770  which datasets
+  771  rm /home/canlola/bioinfo/bin/datasets
+  772  ln -s /home/canlola/miniconda3/envs/ncbi_datasets/bin/datasets /home/canlola/bioinfo/bin/datasets
+  773  ln -s /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat /home/canlola/bioinfo/bin/dataformat
+  774  rm /home/canlola/bioinfo/bin/dataformat
+  775  ln -s /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat /home/canlola/bioinfo/bin/dataformat
+  776  ls -la /home/canlola/bioinfo/bin/
+  777  datasets --version
+  778  dataformat version
+  779  ls -la /home/canlola/bioinfo/bin/dataformat
+  780  /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat version
+  781  /home/canlola/bioinfo/bin/dataformat version
+  782  file /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat
+  783  ls -la /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat
+  784  bash /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat version
+  785  ldd /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat
+  786  /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat
+  787  /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat help
+  788  strace /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat version 2>&1 | head -20
+  789  datasets version
+  790  dataformats --version
+  791  dataformas --version
+  792  dataformat --version
+  793  datasets --version
+  794  dataformat version
+  795  /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat version
+  796  /home/canlola/bioinfo/bin/dataformat version
+  797  dataformat --help
+  798  /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat version 2>&1
+  799  /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat version &> output.txt
+  800  cat output.txt
+  801  ls -la /home/canlola/miniconda3/envs/ncbi_datasets/bin/dataformat
+  802  ls -la /home/canlola/miniconda3/envs/ncbi_datasets/bin/datasets
+  803  datasets dataformat version
+  804  datasets --dataformat version
+  805  R
+  806  conda activate ncbi_datasets
+  807  pwd
+  808  cd bioinfo
+  809  cd results
+  810  cd 2026-02-17
+  811  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  812  cd ~
+  813  dataformat tsv genome --help
+  814  R
+  815  ls -la trypanosoma_annotated.txt
+  816  rm trypanosoma_annotated.txt
+  817  cd bioinfo/results/2026-02-17
+  818  rm trypanosoma_annotated.txt
+  819  conda activate ncbi_datasets
+  820  datasets summary genome taxon Trypanosoma --as-json-lines | dataformat tsv genome --fields accession,organism-name > prueba_trypo.txt
+  821  cat prueba_trypo.txt
+  822  datasets summary genome taxon Trypanosoma --as-json-lines | dataformat tsv genome --fields accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt
+  823  ls -la trypanosoma_annotated.txt
+  824  datasets summary genome taxon Trypanosoma --as-json-lines | dataformat tsv genome --fields accession,organism-name > trypanosoma_simple.txt
+  825  cat trypanosoma_simple.txt
+  826  datasets summary genome taxon Trypanosoma --as-json-lines > trypanosoma_raw.json
+  827  ls -la trypanosoma_raw.json
+  828  wc -l trypanosoma_raw.json
+  829  cat trypanosoma_raw.json | dataformat tsv genome --fields accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_completo.txt
+  830  head trypanosoma_completo.txt
+  831  wc -l trypanosoma_completo.txt
+  832  ls-la trypanosoma_completo.txt
+  833  ls -la trypanosoma_completo.txt
+  834  R
+  835  cd ~
+  836  sudo apt update
+  837  sudo apt install pandoc
+  838  pandoc --version
+  839  R
+  840  cd ~/bioinfo/results/2026-02-17
+  841  conda activate ncbi_datasets
+  842  if [ ! -e ncbi_data/data/GCA_022059095.1/genomic.gff ]; then    if [ ! -e ncbi_dataset.zip ]; then       datasets download genome accession GCA_022059095.1 --include genome,gff3;    fi;    unzip ncbi_dataset.zip; fi
+  843  ls -la ncbi_dataset/data/GCA_022059095.1/
+  844  ls -la ncbi_dataset/data/assembly_data_report.jsonl
+  845  R
+  846  history > 'práctica 4.txt'
+  847  cd ..
+  848  nano .gitignore
+  849  cd results/2026-02-17
+  850  ls -la
+  851  git add.
+  852  git add .
+  853  git status
+  854  git commit -m "Añado resultados de la práctica 4"
+  855  git push origin rama-local
+  856  git remote -v
+  857  git branch
+  858  git log --online -3
+  859  git push origin rama-local
+  860  git push origin --delete rama-local
+  861  git checkout rama
+  862  git add *.html
+  863  git add *.txt
+  864  git add *.qmd
+  865  git add *.json
+  866  git add README.md
+  867  git add md5sum.txt
+  868  git add .gitignore
+  869  git add *.html
+  870  git add *.txt
+  871  git add *.qmd
+  872  git add *.json
+  873  git add README.md
+  874  git add md5sum.txt
+  875  git commit -m "Añado resultados de la práctica 4"
+  876  git push origin rama
+  877  git branch -a
+  878  git branch
+  879  git push remotes/origin/rama
+  880  git fethc origin rama
+  881  git checkout -b rama origin/rama
+  882  git branch
+  883  git add *.html
+  884  git add *.txt
+  885  git add *.qmd
+  886  git add *.json
+  887  git add README.md
+  888  git add md5sum.txt
+  889  git status
+  890  git add *output.txt
+  891  git status
+  892  git commit -m "Añado resultados de práctica 4"
+  893  git push origin rama
+  894  ls -la *.html
+  895  git status *.html
+  896  cd ..
+  897  nano .gitignore
+  898  cd ~/results/2026-02-17
+  899  ls
+  900  cd results
+  901  cd 2026-02-17
+  902  ls 
+  903  find ~/bioinfo -name "*.html" 2>/dev/null
+  904  find ~ -name "*.html" -type f -mtime -2 2>/dev/null
+  905  find ~ -name "apendice_completo.html" 2>/dev/null
+  906  find ~ -name "*.html" 2>/dev/null | grep -E "apendice|desafio|genes|interesantes|resumen|tabla"
+  907  conda deactivate
+  908  ls
+  909  find ~ -name "apendice_completo.html" 2>/dev/null
+  910  ls -la
+  911  ls -la | grep -i html
+  912  find . -name "*.html" -ls
+  913  ls -ld
+  914  sudo ls -la 2>/dev/null
+  915  ls -lb
+  916  echo *.html
+  917  git add -A
+  918  git status
+  919  git commit -m "Subo todos los archivos de la práctica 4"
+  920  git push origin rama
+  921  find . -name "apendice_completo.html" 2>/dev/null
+  922  ls -la ~/.local/share/Trash/files/
+  923  Rscript -e "tempdir()"
+  924  ls -la /tmp/*.html 2>/dev/null
+  925  ls -la /tmp/Rtmp*/**/*.html 2>/dev/null
+  926  find /tmp -name "*.html" -mtime -2 2>/dev/null
+  927  cd bioinfo/results/2026-02-17
+  928  git add guion_práctica_4.qmd
+  929  git add README.md
+  930  git add md5sum.txt
+  931  git add trypanosoma_completo.txt
+  932  git add trypanosoma_annotated.txt
+  933  git add 'práctica 4.txt'
+  934  git commit -m "Práctica 4: Análisis de genomas Trypanosoma"
+  935  git push origin rama
+  936  ls -la
+  937  git add *.html
+  938  git add *.txt
+  939  git add *.qmd
+  940  git add README.md
+  941  git add md5sum.txt
+  942  git add *.json
+  943  git status
+  944  git commit -m "Añado los archivos de la práctica 4"
+  945  git push origin rama
+  946  git fetch origin rama
+  947  git pull origin rama
+  948  # Desde ~/bioinfo/results/2026-02-17
+  949  git pull origin rama --no-rebase
+  950  git push origin rama
+  951  git status
+  952  git add 'guión práctica 4.qmd'
+  953  git commit -m "Resuelvo conflicto: conservo mi versión local del guión"
+  954  git push origin rama
+  955  ls
+  956  cd miniconda3
+  957  ls
+  958  cd ~
+  959  conda create -n ncbi_datasets -y 
+  960  conda activate ncbi_datasets
+  961  conda install -c conda-forge ncbi-datasets-cli -y
+  962  R
+  963  if [ ! -e  trypanosoma_annotated.txt ]; then
+  964     datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  965  conda activate ncbi_datasets
+  966  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  967  dataformat tsv genome --help
+  968  ls -la
+  969  rm trypanosoma_annotated.txt
+  970  cd bioinfo/results/2026-02-17
+  971  if [ ! -e  trypanosoma_annotated.txt ]; then    datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+  972  R
+  973  if [ ! -e ncbi_data/data/GCA_022059095.1/genomic.gff ]; then    if [ ! -e ncbi_dataset.zip ]; then       datasets download genome accession GCA_022059095.1 --include genome,gff3;    fi;    unzip ncbi_dataset.zip; fi
+  974  ls -la ncbi_dataset/data/GCA_022059095.1/
+  975  ls -la ncbi_dataset/data/assembly_data_report.jsonl
+  976  R
+  977  git add "guión práctica 4.qmd"
+  978  git add README.md
+  979  git add md5sum.txt
+  980  git add *.html
+  981  git add *.txt
+  982  git add *.csv
+  983  git status
+  984  git commit -m "Subo resultados completos de práctica 4 - 2026-02-17, por segunda vez"
+  985  git push origin rama
+  986  git config http.postBuffer 524288000
+  987  git config http.lowSpeedLimit 0
+  988  git config http.lowSpeedTime 999999
+  989  git push origin rama
+  990  git config core.compression 0
+  991  git push origin rama
+  992  git add .html
+  993  git add *.html
+  994  git commit -m "Subo los HTML"
+  995  git push origin rama
+  996  pws
+  997  pwd
+  998  cd bioinfo/results/2026-02-17
+  999  conda create -n ncbi_datasets -y 
+ 1000  conda activate ncbi_datasets
+ 1001  conda install -c conda-forge ncbi-datasets-cli -y
+ 1002  R
+ 1003  if [ ! -e  trypanosoma_annotated.txt ]; then
+ 1004     datasets summary genome taxon Trypanosoma --annotated --as-json-lines |    dataformat tsv genome --fields       accession,organism-name,assminfo-release-date,assminfo-level,assmstats-atgc-count,annotinfo-featcount-gene-total,assminfo-type,assminfo-status > trypanosoma_annotated.txt; fi
+ 1005  ls -la
+ 1006  R
+ 1007  if [ ! -e ncbi_data/data/GCA_022059095.1/genomic.gff ]; then    if [ ! -e ncbi_dataset.zip ]; then       datasets download genome accession GCA_022059095.1 --include genome,gff3;    fi;    unzip ncbi_dataset.zip; fi
+ 1008  ls -la ncbi_dataset/data/GCA_022059095.1/ 
+ 1009  ls -la ncbi_dataset/data/assembly_data_report.jsonl
+ 1010  library('jsonlite') #para cargar la librería
+ 1011  prettify(readLines('ncbi_dataset/data/assembly_data_report.jsonl'))
+ 1012  R
+ 1013  cd ..
+ 1014  ls
+ 1015  cd ..
+ 1016  ls
+ 1017  bioinfo
+ 1018  cd bioinfo
+ 1019  nano .gitignore
+ 1020  cd results/2026-02-17
+ 1021  git init
+ 1022  git add README.md
+ 1023  git add "guion práctica 4.qmd"
+ 1024  git add md5sum.txt
+ 1025  git add *.html
+ 1026  git add *.png
+ 1027  git add *.csv
+ 1028  git add *.txt
+ 1029  git add 'guion práctica 4.qmd'
+ 1030  git add 'guión práctica 4.qmd'
+ 1031  history > 'práctica 4.txt'
+ 1032  git add 'práctica 4.txt'
+ 1033  git commit -m 'Práctica 4 completa'
+ 1034  git push origin rama
+ 1035  git status
+ 1036  gir remote add origin https://github.com/CandelaLomas/bioinfo/tree/rama/results
+ 1037  git remote add origin https://github.com/CandelaLomas/bioinfo/tree/rama/results
+ 1038  git branch -M main
+ 1039  git push -u origin main
+ 1040  git status
+ 1041  git ls-files
+ 1042  git status -u
+ 1043  git branch
+ 1044  git branch -a
+ 1045  git push origin main
+ 1046  git remote -v
+ 1047  git remote set-url origin https://github.com/CandelaLomas/bioinfo.git
+ 1048  git remote -v
+ 1049  git push origin rama
+ 1050  git checkout -b rama
+ 1051  git add .
+ 1052  git status
+ 1053  git commit -m 'Añado los archivos de la práctica 4'
+ 1054  git push origin rama
+ 1055  git remote -v
+ 1056  git remote set-url origin git@github.com:CandelaLomas/bioinfo.git
+ 1057  git remote -v
+ 1058  ssh -T git@github.com
+ 1059  git push origin rama
+ 1060  git pull origin rama
+ 1061  git pull origin rama --no-rebase
+ 1062  git pull origin rama --allow-unrelated-histories --no-rebase
+ 1063  git push origin rama
+ 1064  git mv results/*.html results/2026-02-17/ 2>/dev/null
+ 1065  git mv results/*.txt results/2026-02-17/ 2>/dev/null
+ 1066  git mv results/*.csv results/2026-02-17/ 2>/dev/null
+ 1067  git mv results/*.qmd results/2026-02-17/ 2>/dev/null
+ 1068  git mv results/*.json results/2026-02-17/ 2>/dev/null
+ 1069  git mv results/README.md results/2026-02-17/ 2>/dev/null
+ 1070  git mv results/md5sum.txt results/2026-02-17/ 2>/dev/null
+ 1071  git status
+ 1072  git commit
+ 1073  git push origin rama
+ 1074  git pull origin rama --no-rebase
+ 1075  git commit
+ 1076  git push origin rama
+ 1077  cd ..
+ 1078  git mv LICENSE.txt 2026-02-17/
+ 1079  git mv README.md 2026-02-17/
+ 1080  git mv "guión práctica 4.qmd" 2026-02-17/
+ 1081  git mv interesantes.csv 2026-02-17/
+ 1082  git mv md5sum.txt 2026-02-17/
+ 1083  git mv "práctica 4.txt" 2026-02-17/
+ 1084  git mv tabla_genomas.html 2026-02-17/
+ 1085  git mv tabla_genomas_ordenada.html 2026-02-17/
+ 1086  git mv trypanosoma_annotated.txt 2026-02-17/
+ 1087  git mv grafica_acumulacion_genomas.png 2026-02-17/
+ 1088  git status
+ 1089  git add LICENSE.txt
+ 1090  git add README.md
+ 1091  git add "guión práctica 4.qmd"
+ 1092  git add interesantes.csv
+ 1093  git add md5sum.txt
+ 1094  git add "práctica 4.txt"
+ 1095  git add tabla_genomas.html
+ 1096  git add tabla_genomas_ordenada.html
+ 1097  git add trypanosoma_annotated.txt
+ 1098  git add grafica_acumulacion_genomas.png
+ 1099  cd 2026-02-17
+ 1100  git add LICENSE.txt
+ 1101  git add README.md
+ 1102  git add "guión práctica 4.qmd"
+ 1103  git add interesantes.csv
+ 1104  git add md5sum.txt
+ 1105  git add "práctica 4.txt"
+ 1106  git add tabla_genomas.html
+ 1107  git add tabla_genomas_ordenada.html
+ 1108  git add trypanosoma_annotated.txt
+ 1109  git add grafica_acumulacion_genomas.png
+ 1110  git status
+ 1111  git mv LICENSE.txt 2026-02-17/
+ 1112  git mv README.md 2026-02-17/
+ 1113  git mv "guión práctica 4.qmd" 2026-02-17/
+ 1114  git mv interesantes.csv 2026-02-17/
+ 1115  git mv md5sum.txt 2026-02-17/
+ 1116  git mv "práctica 4.txt" 2026-02-17/
+ 1117  git mv tabla_genomas.html 2026-02-17/
+ 1118  git mv tabla_genomas_ordenada.html 2026-02-17/
+ 1119  git mv trypanosoma_annotated.txt 2026-02-17/
+ 1120  git mv grafica_acumulacion_genomas.png 2026-02-17/
+ 1121  git statys
+ 1122  git status
+ 1123  cd ..
+ 1124  git mv 2026-02-17/LICENSE.txt 2026-02-17/ 2>/dev/null
+ 1125  git mv 2026-02-17/README.md 2026-02-17/ 2>/dev/null
+ 1126  git mv "2026-02-17/guion práctica 4.qmd" 2026-02-17/ 2>/dev/null
+ 1127  git mv 2026-02-17/interesantes.csv 2026-02-17/ 2>/dev/null
+ 1128  git mv 2026-02-17/md5sum.txt 2026-02-17/ 2>/dev/null
+ 1129  git mv "2026-02-17/práctica 4.txt" 2026-02-17/ 2>/dev/null
+ 1130  git mv 2026-02-17/tabla_genomas.html 2026-02-17/ 2>/dev/null
+ 1131  git mv 2026-02-17/tabla_genomas_ordenada.html 2026-02-17/ 2>/dev/null
+ 1132  git mv 2026-02-17/trypanosoma_annotated.txt 2026-02-17/ 2>/dev/null
+ 1133  git mv 2026-02-17/grafica_acumulacion_genomas.png 2026-02-17/ 2>/dev/null
+ 1134  ls -la
+ 1135  cd 2026-02-17
+ 1136  ls -la
+ 1137  git add 2026-02-17/
+ 1138  cd .. 
+ 1139  git add 2026-02-17/
+ 1140  git commit
+ 1141  git push origin rama
+ 1142  git commit -m 'Añado los archivos de la práctica 4'
+ 1143  git pull origin rama --no-rebase
+ 1144  git push origin rama
+ 1145  git add 2026-02-17/*.txt 2026-02-17/*.csv 2026-02-17/*.qmd 2026-02-17/README.md 2026-02-17/md5sum.txt
+ 1146  git commit -m "Subo archivos pequeños"
+ 1147  git push origin rama
+ 1148  git add 2026-02-17
+ 1149  git commit -m "Añado los archivos de la práctica 4"
+ 1150  git pull origin rama --no-rebase
+ 1151  git push origin rama
+ 1152  cd ..
+ 1153  ls -la | grep -i "results\|github"
+ 1154  cd results
+ 1155  git status
+ 1156  ls -la
+ 1157  cd ..
+ 1158  git clone git@github.com:CandelaLomas/bioinfo.git
+ 1159  cd tu-repositorio
+ 1160  ls
+ 1161  find . -name ".git" -type d 2>/dev/null
+ 1162  git remote -v
+ 1163  cd bioinfo
+ 1164  git remote -vç
+ 1165  git remote -v
+ 1166  cd ..
+ 1167  ls -la
+ 1168  rm -rf ~/bioinfo/bioinfo/.git
+ 1169  mv ~/bioinfo/2026-02-17/* results/2026-02-17/
+ 1170  mv ~/bioinfo/2026-02-17/.* results/2026-02-17/ 2>/dev/null
+ 1171  git status
+ 1172  cd results
+ 1173  git add 2026-02-17
+ 1174  git status
+ 1175  cd ..
+ 1176  git push origin rama
+ 1177  git pull origin rama
+ 1178  ls
+ 1179  cd results
+ 1180  git add 2026-02-17
+ 1181  git add .gitignore
+ 1182  cd ..
+ 1183  git add .gitignore
+ 1184  git status
+ 1185  git add results/2026-02-17
+ 1186  git status
+ 1187  git stash
+ 1188  git stash list
+ 1189  git pull origin rama
+ 1190  git pull --no-rebase origin rama
+ 1191  git statys
+ 1192  git status
+ 1193  git push origin rama
+ 1194  cd bioinfo
+ 1195  cd results
+ 1196  cd 2026-02-17
+ 1197  git add 'guión práctica 4.qmd'
+ 1198  git commit -m 'Añado el guión de la práctica'
+ 1199  git push origin rama
+ 1200  git config http.postBuffer 524288000
+ 1201  git push origin rama
+ 1202  git config core.compression 0
+ 1203  git push --progress origin rama
+ 1204  cd ~/bioinfo
+ 1205  git remote set-url origin https://github.com/CandelaLomas/bioinfo.git
+ 1206  git remote -v
+ 1207  git push origin rama
+ 1208  git reset --soft HEAD~1
+ 1209  git reset
+ 1210  nano .gitignore
+ 1211  cd resulst
+ 1212  cd results
+ 1213  git add 2026-02-17
+ 1214  cd --
+ 1215  cd bioinfo
+ 1216  cd .gitignore
+ 1217  add .gitignore
+ 1218  git add .gitignore
+ 1219  git commit -m 'Subiendo archivos práctica 4'
+ 1220  git push origin rama --force
+ 1221  pip install git-filter-repo
+ 1222  git filter-repo --path data/ --invert-paths --force
+ 1223  nano .gitignore
+ 1224  git add .gitignore
+ 1225  cd results
+ 1226  git add 2026-02-17
+ 1227  git commit -m 'Subiendo los archivos de la práctica 4'
+ 1228  git push origin rama --force
+ 1229  cd ..
+ 1230  git push origin rama --force
+ 1231  git status
+ 1232  git remote -v
+ 1233  git remote add origin https://github.com/CandelaLomas/bioinfo/tree/rama
+ 1234  git remote -v
+ 1235  git push origin rama --force
+ 1236  git remote set-url origin https://github.com/CandelaLomas/bioinfo/tree/rama
+ 1237  git remote remove origin
+ 1238  git remote add origin https://github.com/CandelaLomas/bioinfo.git
+ 1239  git remote -v
+ 1240  git push -u origin rama --force
+ 1241  git status
+ 1242  ls -la ~/bioinfo/bioinfo
+ 1243  rm -rf ~/bioinfo/bioinfo
+ 1244  git status
+ 1245  git remote set-url origin git@github.com:CandelaLomas/bioinfo.git
+ 1246  git remote -v
+ 1247  ssh -T git@github.com
+ 1248  pip uninstall git-filter-repo
+ 1249  rm -rf ~/bioinfo_backup
+ 1250  git gc --prune=now
+ 1251  R
+ 1252  sudo apt update
+ 1253  sudo apt install libxml2-dev libxml2
+ 1254  R
+ 1255  which R
+ 1256  sudo apt remove r-base r-base-dev
+ 1257  sudo apt update
+ 1258  sudo apt install r-base r-base-dev
+ 1259  ldd $(which R) | head -5
+ 1260  conda deactivate
+ 1261  which R
+ 1262  ldd $(which R) | head -5
+ 1263  R --version
+ 1264  which -a R
+ 1265  ls -la /usr/bin/R
+ 1266  head -20 /usr/bin/R
+ 1267  find /usr/lib/R -name "R" -type f -executable 2>/dev/null
+ 1268  R
+ 1269  sudo apt install libxml2-dev libxml2
+ 1270  R
+ 1271  sudo apt update
+ 1272  sudo apt install firefox
+ 1273  R
+ 1274  curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'result=sample&query=tax_tree(85571)%20AND%20country%3D%22Spain%22&fields=sample_accession%2Csample_description%2Ctax_id%2Ccountry%2Ccollection_date_start%2Clocation&format=tsv' "https://www.ebi.ac.uk/ena/portal/api/search"
+ 1275  R
+ 1276  cd bioinfo
+ 1277  cd results 
+ 1278  cd 2026-02-24
+ 1279  R
+ 1280  cd bioinfo/results/2026-02-24
+ 1281  R
+ 1282  cd bioinfo
+ 1283  cd results
+ 1284  cd 2026-02-24
+ 1285  R
+ 1286  history >'práctica 5.txt'
+ 1287  git add 2026-02-24
+ 1288  cd .. 
+ 1289  git add 2026-02-24
+ 1290  git commit -m 'Subo las cosas de la práctica 5'
+ 1291  git push origin rama
+ 1292  git pull origin rama
+ 1293  git pull --no-rebase origin rama
+ 1294  git push origin rama
+ 1295  R
+ 1296  cd bioinfo
+ 1297  cd results
+ 1298  cd 2026-03-03
+ 1299  R
+ 1300  history > 'práctica 6.txt'

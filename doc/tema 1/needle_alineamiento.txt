@@ -1,0 +1,87 @@
+########################################
+# Program: needle
+# Rundate: Tue 17 Mar 2026 13:54:01
+# Commandline: needle
+#    -asequence datos/gallo.fa
+#    -bsequence datos/vaca.fa
+#    -outfile needle_alineamiento.txt
+#    -gapopen 10
+#    -gapextend 0.5
+#    -datafile EDNAFULL
+# Align_format: srspair
+# Report_file: needle_alineamiento.txt
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: KU939310.1
+# 2: AF176811.1
+# Matrix: EDNAFULL
+# Gap_penalty: 10.0
+# Extend_penalty: 0.5
+#
+# Length: 628
+# Identity:     164/628 (26.1%)
+# Similarity:   164/628 (26.1%)
+# Gaps:         455/628 (72.5%)
+# Score: 784.0
+# 
+#
+#=======================================
+
+KU939310.1         0 --------------------------------------------------      0
+                                                                       
+AF176811.1         1 CCATGGTGACCACGGGTGACGGGGAATCAGGGTTCGATTCCGGAGAGGGA     50
+
+KU939310.1         0 --------------------------------------------------      0
+                                                                       
+AF176811.1        51 GCCTGAGAAACGGCTACCACATCCAAGGAAGGCAGCAGGCGCGCAAATTA    100
+
+KU939310.1         0 --------------------------------------------------      0
+                                                                       
+AF176811.1       101 CCCACTCCCGACCCGGGGAGGTAGTGACGAAAAATAACAATACAGGACTC    150
+
+KU939310.1         0 --------------------------------------------------      0
+                                                                       
+AF176811.1       151 TTTCGAGGCCCTGTAATTGGAATGAGTCCACTTTAAATCCTTCCGCGAGG    200
+
+KU939310.1         1 --------------------------------------------AGCTCC      6
+                                                                 ||||||
+AF176811.1       201 ATCCATTGGAGGGCAAGTCTGGTGCCAGCAGCCGCGGTAATTCCAGCTCC    250
+
+KU939310.1         7 AATAGCGTATATTAAAGTTGCTGCAGTTAAAAAGCTCGTAGTTGGATCTT     56
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+AF176811.1       251 AATAGCGTATATTAAAGTTGCTGCAGTTAAAAAGCTCGTAGTTGGATCTT    300
+
+KU939310.1        57 GGGATCGAGCTGGCGGTCCGCCGCGAGGCGAGCTACCGCCTGTCCCAGCC    106
+                     ||||.||.||.||||||||||||||||||||||.||||||.|||||.|||
+AF176811.1       301 GGGAGCGGGCGGGCGGTCCGCCGCGAGGCGAGCCACCGCCCGTCCCCGCC    350
+
+KU939310.1       107 CCTGTCTCTCGGCGCCCCCTCGATGCTCTTAACTGAGTGTCCCGCGGGGC    156
+                     |||..||||||||||||||||||||||||||.||||||||||||||||||
+AF176811.1       351 CCTTGCTCTCGGCGCCCCCTCGATGCTCTTAGCTGAGTGTCCCGCGGGGC    400
+
+KU939310.1       157 CCGAAGCGTTTACTTTGAAAAAATTAGAGTGTTCAAAGCAGGCTGGCCGC    206
+                     |||||||||||||||||                                 
+AF176811.1       401 CCGAAGCGTTTACTTTG---------------------------------    417
+
+KU939310.1       207 CGGAATACTCCAGCTAGGAATAATGGAATAGGACTCCGGTTCTATTTTGT    256
+                                                                       
+AF176811.1       417 --------------------------------------------------    417
+
+KU939310.1       257 TGGTTTTCGGAAACGGGGCCATGATTAAGAGGGACGGCCGGGGGCATTCG    306
+                                                                       
+AF176811.1       417 --------------------------------------------------    417
+
+KU939310.1       307 TATTGTGCCGCTAGAGGTGAAATTCTTGGACCGGCGCAAGACGAACTAAA    356
+                                                                       
+AF176811.1       417 --------------------------------------------------    417
+
+KU939310.1       357 GCGAAAGCATTTGCCAAGAATGTTTTCA    384
+                                                 
+AF176811.1       417 ----------------------------    417
+
+
+#---------------------------------------
+#---------------------------------------
