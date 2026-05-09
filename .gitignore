@@ -27,3 +27,5 @@ asm1_eval/
 _freeze/
 
 # Fin
+*.Zone.Identifier
+*:Zone.Identifier
